@@ -1,12 +1,13 @@
-#pragma config(UserModel, "C:/Users/Andrew/Documents/Programing/Robotc/Projects/Testing/src/Headers/plainClawBot.h")
+#pragma config(UserModel, "C:/Users/staff/Desktop/RobotC/Projects/Testing/src/Headers/plainClawBot.h")
 
-#include "Header.h"
+#include "C:/Users/staff/Desktop/RobotC/Projects/Testing/src/Headers/Header.h"
+
+//C:\Users\staff\Desktop\RobotC\Projects\Testing\src
 
 //////////////////Main method/////////////////////
 task main() {
 	move(100, 1200);
-	wait1Msec(10);
-
-	turn('L', 360);
+	move(128, 50000);
 }
+
 /////////////////End Main method//////////////////
