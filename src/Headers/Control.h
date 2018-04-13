@@ -72,10 +72,11 @@ void checkMove(){
 	}
 }
 
-
+/*
 void reset(){
 	motor[LMot] = 0;
 	motor[RMot] = 0;
 	motor[clawMot] = 0;
 	motor[armMot] = 0;
 }
+*/
