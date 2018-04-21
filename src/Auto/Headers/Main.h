@@ -65,9 +65,4 @@ void turn(char dir, int degree){
 
 /*
 TODO: Implement Claw Motion.
-
-TODO: Implement circular/eliptical motion function for stability, optimization, and flexibility.
-	NOTE: I'm think it's implementable with vectors and graphs, but I need data, (and I feel the physics problem agony).
-		Or ... Get Mr.Conley, Sam Nall and Garret Smith to derive this ... somehow.
-		Maybe it's faster for stationary turns, then forward motion?
 */
