@@ -16,6 +16,7 @@ task checkClaw() {
 			motor[clawMot] = -127;
 			} else {
 			motor[clawMot] = 0;
+
 		}
 	}
 }
@@ -23,11 +24,14 @@ task checkClaw() {
 task checkArm() {
 	while(true) {
 		if(vexRT[Btn5U] == 1) {
-			motor[armMot] = 127;
+			motor[armMotA] = 127;
+			motor[armMotB] = 127;
 			} else if (vexRT[Btn5D] == 1) {
-			motor[armMot] = -127;
+			motor[armMotA] = -127;
+			motor[armMotB] = -127;
 			} else {
-			motor[armMot] = 15;
+			motor[armMotA] = 15;
+			motor[armMotB] = 0;
 		}
 	}
 }
