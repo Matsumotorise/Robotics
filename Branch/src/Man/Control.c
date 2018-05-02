@@ -3,14 +3,38 @@
 
 #include "C:/Users/staff/Desktop/clawBot-master/Branch/src/Man/Headers/Control.h"
 
+void man(){
+		startTask(checkArm);
+		startTask(checkClaw);
+		startTask(leftMotor);
+		startTask(rightMotor);
+		startTask(checkRack);
+}
+
+void auto(){
+		stopTask(checkArm);
+		stopTask(checkClaw);
+		stopTask(leftMotor);
+		stopTask(rightMotor);
+		stopTask(checkRack);
+		/*
+				Auto code...
+		*/
+}
 
 task main(){
 	//Check in separate threads
-	startTask(checkArm);
-	startTask(checkClaw);
-	startTask(leftMotor);
-	startTask(checkRack);
+{
+	bool manOn = true;
 
-	while(true)
-		checkMoveR(vexRT[Ch2]);
+		while(true){
+			if((vexRT[Btn8D] == 1 && vexRT[Btn8R] == 1) && !manOn) {
+				man();
+				manOn = true;
+			} else if ((vexRT[Btn8L] == 1 && vexRT[Btn8U] == 1) && manOn) {
+				auto();
+				manOn = false;
+			}
+		}
+	}
 }

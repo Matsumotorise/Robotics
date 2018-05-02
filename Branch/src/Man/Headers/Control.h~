@@ -1,13 +1,5 @@
 #pragma once
 
-#define aThreshold 5
-
-bool isActivated(int &mot) {
-	if(mot < -aThreshold || mot > aThreshold)
-		return true;
-	return false;
-}
-
 task checkClaw() {
 	while(true) {
 		if(vexRT[Btn6U] == 1) {
@@ -25,50 +17,46 @@ task checkArm() {
 	while(true) {
 		if(vexRT[Btn5U] == 1) {
 			motor[armMotA] = 127;
-			motor[armMotB] = 127;
+
 			} else if (vexRT[Btn5D] == 1) {
 			motor[armMotA] = -127;
-			motor[armMotB] = -127;
+
 			} else {
 			motor[armMotA] = 15;
-			motor[armMotB] = 0;
+
 		}
 	}
 }
 
-void checkMoveX(const int &x) {
+task checkRack(){
+		while(true) {
+			if(1 == vexRT[Btn7U])
+				motor[armMotB] = -127;
+			else if ( 1 == vexRT[Btn7D])
+				motor[armMotB] = 127;
+			else
+				motor[armMotB] = 0;
+		}
+}
+void checkMoveL(int x) {
 	motor[LMot] = x;
-	motor[RMot] = -x;
+}
+task leftMotor(){
+	while(true){
+			checkMoveL(vexRT[Ch3]);
+	}
 }
 
-void checkMoveY(const int &y) {
-	motor[LMot] = y;
+void checkMoveR(int y) {
 	motor[RMot] = y;
 }
 
-void checkXY(const int &x, const int &y) {
-	motor[LMot]  = (y + x) / 2;
-	motor[RMot] = (y - x) / 2;
+task rightMotor(){
+		while(true)
+			checkMoveR(vexRT[Ch2]);
 }
 
-void checkMove() {
-	//Set Vars
-	int x = vexRT[Ch1];
-	int y = -vexRT[Ch3];
-
-	if(vexRT[Btn7D] == 1 || vexRT[Btn8D] == 1) {
-		x /= 2;
-		y /= 2;
-	}
-
-	if(isActivated(y)){// y + both required y != 0
-
-		if(!isActivated(x)) {checkMoveY(y);
-		}	else {checkXY(x, y);}
-
-	} else {checkMoveX(x);}
-
-} //Vars are deleted by end of scope
+//Vars are deleted by end of scope
 
 
 /*

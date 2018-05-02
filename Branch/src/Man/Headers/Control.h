@@ -51,6 +51,10 @@ void checkMoveR(int y) {
 	motor[RMot] = y;
 }
 
+task rightMotor(){
+		while(true)
+			checkMoveR(vexRT[Ch2]);
+}
 
 //Vars are deleted by end of scope
 

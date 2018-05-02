@@ -10,7 +10,20 @@ void move(int lPower, int rPower, int msTime){
 
 	/*Checking in case an someone goes overboard with a value;
 	however, it shouldn't be needed in the final code.*/
-	
+	if (lPower > maxPow){
+		move(maxPow, rPower, msTime);
+		return;
+	} else if (rPower > maxPow) {
+		move(lPower, maxPow, msTime);
+		return;
+	} else if (lPower < -maxPow) {
+		move(-maxPow, rPower, msTime);
+		return;
+	} else if (rPower < -maxPow) {
+		move(lPower, -maxPow, msTime);
+		return;
+	}
+	////////////overValue check end///////////////
 
 	motor[LMot] = lPower;
 	motor[RMot] = rPower;

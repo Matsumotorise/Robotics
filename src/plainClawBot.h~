@@ -1,7 +1,6 @@
 #pragma config(I2C_Usage, I2C1, i2cSensors)
 #pragma config(Sensor, dgtl8,  sonar,               sensorSONAR_cm)
 #pragma config(Motor,  port1,           LMot,          tmotorVex393_HBridge, openLoop, reversed, driveLeft)
-#pragma config(Motor,  port4,           BMot,          tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port5,           armMotA,       tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port6,           clawMot,       tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port7,           armMotB,        tmotorVex393_MC29, openLoop, reversed, encoderPort, I2C_3)
